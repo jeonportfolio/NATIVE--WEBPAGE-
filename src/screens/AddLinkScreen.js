@@ -7,11 +7,13 @@ import {Header} from '../components/Header/Header';
 import {SingleLineInput} from '../components/SingleLineInput'
 import { Spacer } from '../components/Spacer';
 import { Typography } from '../components/Typography';
+import { useSetRecoilState } from 'recoil';
+import { atomLinkList } from '../components/states/atomLinkList';
 export const AddLinkScreen = ()=>{
     const navigation = useNavigation();
     const [url, setUrl] = useState('');
     const safeAreaInsets = useSafeAreaInsets();
-
+    const updateList = useSetRecoilState(atomLinkList);
 
     const onPressClose = useCallback ( ()=>{
         navigation.goBack();
@@ -20,6 +22,23 @@ export const AddLinkScreen = ()=>{
 
     const onPressSave = useCallback(()=>{
         if(url === '') return;
+
+        updateList((preState) => {
+
+            const list = [{
+                title: '',
+                imaage: '',
+                link: url,
+                createdAt: new Date().toISOString(),
+
+            }]
+
+            return{
+                list : list.concat(preState.list)
+            }
+        })
+
+        setUrl('');
 
     }, [url])
 
