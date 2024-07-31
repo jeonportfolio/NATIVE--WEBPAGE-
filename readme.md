@@ -32,3 +32,19 @@
  ▤  ` npx expo install react-native-webview` -> 웹뷰설치<br>
  ▤  Route를 활용한다. <br>
 
+ ## Open graph tag
+
+ ▤ Title, type, Image URL 등 페이지에 대한 정보를 조회할 수 있다.<br>
+ ▤ `npm install react-native-opengraph-kit ` -> 설치 <br>
+ ▤ Open GraphTagUtils.js 에서 OpenGraphParser를 이용해서 url의 결과물을 도출한다. <br>
+ ▤ SingleLineInput에서 엔터를 누르면 값을 반환 -> 이미지 미리보기 <br>
+
+ ## 클립보드 (복사와 붙여넣기)
+ 
+ ▤ `npx expo install expo-clipboard `<br>
+ 
+
+
+
+
+
